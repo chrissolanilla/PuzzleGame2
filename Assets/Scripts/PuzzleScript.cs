@@ -1,0 +1,65 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PuzzleScript : MonoBehaviour
+{
+    [SerializeField] bool complete = false;
+    GameObject[] triangles;
+    [SerializeField] int correctTriangles = 0;
+
+    [SerializeField] Collider2D EdgeCollider;
+    [SerializeField] Collider2D AreaCollider;
+
+    [SerializeField] Color completeColor;
+    [SerializeField] Color incompleteColor;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        triangles = GameObject.FindGameObjectsWithTag("triangle");
+        GetComponent<SpriteRenderer>().color = incompleteColor;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(complete)
+        {
+            GetComponent<SpriteRenderer>().color = completeColor;
+            PlayerStatistics.CompeltePuzzleLevel();
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = incompleteColor;
+        }
+    }
+
+    /// <summary>
+    /// Checks if a Puzzle is Complete
+    /// All pieces in Puzzle must be inside puzzle
+    /// and not touching the edge of the puzzle.
+    /// </summary>
+    public void checkComplete()
+    {
+        complete = true;
+        foreach(GameObject tri in triangles)
+        {
+            if (EdgeCollider.IsTouching(tri.GetComponent<PolygonCollider2D>()) || !AreaCollider.IsTouching(tri.GetComponent<PolygonCollider2D>()))
+            {
+                complete = false;
+                break;
+            }
+        }
+    }
+
+    public GameObject GetUnsolvedPiece()
+    {
+        foreach (GameObject tri in triangles)
+        {
+            if (!AreaCollider.IsTouching(tri.GetComponent<PolygonCollider2D>())) return tri;
+            if (EdgeCollider.IsTouching(tri.GetComponent<PolygonCollider2D>())) return tri;
+        }
+        return null;
+    }
+}

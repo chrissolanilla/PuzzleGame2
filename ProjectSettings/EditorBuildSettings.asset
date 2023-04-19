@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Menu_Test.unity
+    guid: 9b5a7e7615fb85049859eed88db65d02
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: e5e8aec6c06abe54a908abeadcaebcfc
+  - enabled: 1
+    path: Assets/Scenes/Game_WhiteboardMode.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_1.unity
+    guid: 06a1219259672eb40a418e468abfa752
+  - enabled: 1
+    path: Assets/Scenes/Menu_Report.unity
+    guid: f3327f5ff909f6d48bf7ee92793373d3
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_2.unity
+    guid: 964125ddd7b75e24194c9a4b50041ce8
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_3.unity
+    guid: 6b6b5c8945dbc5644b0ce144983463d1
+  m_configObjects: {}
