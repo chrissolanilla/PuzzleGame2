@@ -1412,6 +1412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionsPopUp: {fileID: 1463729538}
+  winnerPopUp: {fileID: 0}
+  UIButtons: {fileID: 0}
   defaultTriangles: {fileID: 501442744386652914, guid: ab43b0a55d460b549a8c721b638cfaba, type: 3}
 --- !u!1 &887214007
 GameObject:
@@ -1504,6 +1506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionsPopUp: {fileID: 1463729538}
+  winnerPopUp: {fileID: 0}
+  UIButtons: {fileID: 0}
   defaultTriangles: {fileID: 501442744386652914, guid: ab43b0a55d460b549a8c721b638cfaba, type: 3}
 --- !u!114 &942762250
 MonoBehaviour:
@@ -1803,7 +1807,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 835407626}
         m_TargetAssemblyTypeName: SceneNavigation, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5

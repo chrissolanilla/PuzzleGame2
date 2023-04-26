@@ -7,6 +7,8 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
     public GameObject directionsPopUp;
+    public GameObject winnerPopUp;
+    public GameObject UIButtons;
     public GameObject defaultTriangles;
     private GameObject[] oldTriangles;
     private bool directionsActive;
@@ -14,6 +16,8 @@ public class Menu : MonoBehaviour
     private void Start()
     {
         if(directionsPopUp) directionsPopUp.SetActive(false);   
+        if(winnerPopUp) winnerPopUp.SetActive(false);
+        if(UIButtons) UIButtons.SetActive(true);
     }
     public void ClearBoard()
     {
@@ -44,5 +48,17 @@ public class Menu : MonoBehaviour
             directionsPopUp.SetActive(false);
             directionsActive = false;
         }
+    }
+
+    public void WinGameUI()
+    {
+        if (winnerPopUp && winnerPopUp.activeSelf) return;
+        if (directionsPopUp)
+        {
+            directionsPopUp.SetActive(false);
+            directionsActive = false;
+        }
+        if (UIButtons) UIButtons.SetActive(false);
+        if (winnerPopUp) winnerPopUp.SetActive(true);
     }
 }

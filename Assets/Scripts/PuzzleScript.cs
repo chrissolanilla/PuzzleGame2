@@ -14,6 +14,9 @@ public class PuzzleScript : MonoBehaviour
     [SerializeField] Color completeColor;
     [SerializeField] Color incompleteColor;
 
+    [SerializeField]
+    private Menu puzzleUIControls;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,7 @@ public class PuzzleScript : MonoBehaviour
         if(complete)
         {
             GetComponent<SpriteRenderer>().color = completeColor;
+            if (puzzleUIControls) puzzleUIControls.WinGameUI();
             PlayerStatistics.CompeltePuzzleLevel();
         }
         else
