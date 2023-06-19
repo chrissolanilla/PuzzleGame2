@@ -53,6 +53,9 @@ public class DragDrop : MonoBehaviour
             newTriangle = Instantiate(gameObject, new Vector3 ((gameObject.transform.position.x), gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
             newTriangle.tag = "whiteboard";
             newTriangle.GetComponent<DragDrop>().Select();
+
+            gameObject.GetComponent<Selectable>().Unselect();
+            newTriangle.GetComponent<Selectable>().Select();
         }
 
         //moving whiteboard or puzzle triangles

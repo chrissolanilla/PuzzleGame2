@@ -26,8 +26,12 @@ public class Selectable : MonoBehaviour
 
     void Start()
     {
-        UIButtons.SetActive(false);
-        rotationHandle.SetActive(false);
+        if (!_isSelected) //when a docked triangle is spawned in whiteboard mode, it is already selected
+        {
+            UIButtons.SetActive(false);
+            rotationHandle.SetActive(false);
+        }
+        
         eventSystem = GameObject.Find("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem>();
         rotationController = GetComponent<Rotate>();
     }
@@ -36,7 +40,7 @@ public class Selectable : MonoBehaviour
     {
         Vector3 UItransform = UIButtons.transform.localPosition;
 
-        if (_mouseOver && DoubleClick()) Select();
+        if (_mouseOver && Input.GetMouseButtonDown(0)) Select();
 
         Collider2D _targetCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition), UILayer);
         if (_targetCollider && _targetCollider.GetComponentInParent<Selectable>() == this)
@@ -62,7 +66,7 @@ public class Selectable : MonoBehaviour
         return _draggingPossible;
     }
 
-    private void Select()
+    public void Select()
     {
         _isSelected = true;
         selectionActive = true;
