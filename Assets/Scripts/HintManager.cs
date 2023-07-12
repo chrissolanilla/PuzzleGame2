@@ -15,6 +15,7 @@ public class HintManager : MonoBehaviour
     private Dictionary<GameObject, HintPiece> triangleHintPairs = new Dictionary<GameObject, HintPiece>();
     private PuzzleScript puzzleScript;
     private bool hintActive = false;
+    private Coroutine vagueHintRoutine;
 
     void Start()
     {
@@ -29,38 +30,39 @@ public class HintManager : MonoBehaviour
         {
             HintPiece hintPiece = triangle.GetComponentInChildren<HintPiece>();
             triangleHintPairs.Add(triangle, hintPiece);
+            hintPiece.AssignToManager(this);
             hintPiece.Detatch();
         }
     }
 
     public void RequestHint()
     {
-        if (hintActive) return;
-        PlayerStatistics.HintUsed();
-        if (giveVagueHintFirst) GiveVagueHint();
-        else
+        if (hintActive)
         {
-            GameObject unsolvedPiece = puzzleScript.GetUnsolvedPiece();
-            if (unsolvedPiece)
-            {
-                HintPiece unsolvedHintPiece = null;
-                triangleHintPairs.TryGetValue(unsolvedPiece, out unsolvedHintPiece);
-                if (unsolvedHintPiece)
-                {
-                    unsolvedHintPiece.MakeHintVisible(visibilityTime);
-                    StartCoroutine(ToggleExplicitHintUI());
-                }
-            }
+            if (vagueHintUI && vagueHintUI.activeInHierarchy) CancelVagueHint();
+            else return;
         }
+
+        PlayerStatistics.HintUsed();
+        if (giveVagueHintFirst) BeginVagueHintRoutine();
+        else BeginExplicitHintRoutine();
     }
 
-    private void GiveVagueHint()
+    private void BeginVagueHintRoutine()
     {
         giveVagueHintFirst = false;
-        StartCoroutine(ToggleVagueHintUI());
+        vagueHintRoutine = StartCoroutine(ActivateVagueHint());
     }
 
-    private IEnumerator ToggleVagueHintUI()
+    private void CancelVagueHint()
+    {
+        giveVagueHintFirst = false;
+        StopCoroutine(vagueHintRoutine);
+        if (vagueHintUI) vagueHintUI.SetActive(false);
+        hintActive = false;
+    }
+
+    private IEnumerator ActivateVagueHint()
     {
         hintActive = true;
         if (vagueHintUI) vagueHintUI.SetActive(true);
@@ -69,12 +71,27 @@ public class HintManager : MonoBehaviour
         hintActive = false;
     }
 
-    private IEnumerator ToggleExplicitHintUI()
+    private void BeginExplicitHintRoutine()
     {
-        hintActive = true;
-        if (explicitHintUI) explicitHintUI.SetActive(true);
-        yield return new WaitForSeconds(visibilityTime);
-        if (explicitHintUI) explicitHintUI.SetActive(false);
-        hintActive = false;
+        GameObject unsolvedPiece = puzzleScript.GetUnsolvedPiece();
+        if (unsolvedPiece)
+        {
+            HintPiece unsolvedHintPiece = null;
+            triangleHintPairs.TryGetValue(unsolvedPiece, out unsolvedHintPiece);
+            if (unsolvedHintPiece)
+            {
+                unsolvedHintPiece.ActivateHint(ref unsolvedPiece);
+                ToggleExplicitHintUI();
+            }
+        }        
+    }
+
+    public void ToggleExplicitHintUI()
+    {
+        if (!explicitHintUI) return;
+
+        if (hintActive) explicitHintUI.SetActive(false);
+        else explicitHintUI.SetActive(true);
+        hintActive = !hintActive;
     }
 }

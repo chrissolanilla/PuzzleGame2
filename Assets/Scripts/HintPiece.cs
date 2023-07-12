@@ -6,14 +6,27 @@ public class HintPiece : MonoBehaviour
 {
     [SerializeField]
     private string triangleType = "";
-    private SpriteRenderer renderer;
-    private bool currentlyOverlapped = false;
-    GameObject overlappingObject = null;
+    [SerializeField]
+    private float postOverlapHintTime = 2.5f;
+    [SerializeField]
+    bool leniantOverlapTest = false;
+
+    private bool readyToDeactivate = false;
+    private HintManager hintManager = null;
+    private SpriteRenderer hintPieceRenderer;
+    private GameObject associatedPuzzlePiece = null;
+    private List<GameObject> overlappingObjects;
 
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
-        if (renderer) renderer.enabled = false;
+        overlappingObjects = new List<GameObject>();
+        hintPieceRenderer = GetComponent<SpriteRenderer>();
+        if (hintPieceRenderer) hintPieceRenderer.enabled = false;
+    }
+
+    private void Update()
+    {
+        if (hintPieceRenderer && hintPieceRenderer.enabled) AttemptToDeactivateHint();
     }
 
     public void Detatch()
@@ -21,48 +34,66 @@ public class HintPiece : MonoBehaviour
         gameObject.transform.parent = null;
     }
 
-    public void MakeHintVisible(float visibilityTime)
+    public void AssignToManager(HintManager manager)
     {
-        if (renderer && renderer.enabled) return;
-
-        if (currentlyOverlapped)
-        {
-            HintPiece synonymousHint = FindSynonymousHint();
-            if (synonymousHint) synonymousHint.MakeHintVisible(visibilityTime);
-            else StartCoroutine(MakeHintInvisible(visibilityTime));
-        }
-        else StartCoroutine(MakeHintInvisible(visibilityTime));
+        hintManager = manager;
     }
 
-    private IEnumerator MakeHintInvisible(float visibilityTime)
+    public void ActivateHint(ref GameObject associatedPiece)
     {
-        if (renderer) renderer.enabled = true;
-        yield return new WaitForSeconds(visibilityTime);
-        if (renderer) renderer.enabled = false;
+        if (hintPieceRenderer && hintPieceRenderer.enabled) return;
+        if (IsCurrentlyOverlapped()) 
+        {
+            HintPiece synonymousHint = FindSynonymousHint();
+            if (synonymousHint)
+            {
+                synonymousHint.ActivateHint(ref associatedPuzzlePiece);
+                return;
+            }
+        }
+        
+        associatedPuzzlePiece = associatedPiece;
+        hintPieceRenderer.enabled = true;
+    }
+
+    private void AttemptToDeactivateHint()
+    {
+        if (!readyToDeactivate && IsCurrentlyOverlapped()) StartCoroutine(DeactivateHint());
+    }
+
+    private IEnumerator DeactivateHint()
+    {
+        readyToDeactivate = true;
+        yield return new WaitForSeconds(postOverlapHintTime);
+        if(IsCurrentlyOverlapped())
+        {
+            if(hintPieceRenderer) hintPieceRenderer.enabled = false;
+            if (hintManager) hintManager.ToggleExplicitHintUI();
+        }
+        readyToDeactivate = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PuzzleCheck puzzleComp = collision.gameObject.GetComponent<PuzzleCheck>();
-        if (puzzleComp && puzzleComp.TriangleType() == triangleType)
-        {
-            currentlyOverlapped = true;
-            overlappingObject = collision.gameObject;
-        }
+        if (puzzleComp && puzzleComp.TriangleType() == triangleType) overlappingObjects.Add(collision.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(overlappingObject == collision.gameObject)
-        {
-            currentlyOverlapped = false;
-            overlappingObject = null;
-        }
+        overlappingObjects.Remove(collision.gameObject);
     }
 
     public bool IsCurrentlyOverlapped()
     {
-        return currentlyOverlapped;
+        foreach(GameObject overlappingObject in overlappingObjects)
+        {
+            float dist = Vector3.Distance(gameObject.transform.position, overlappingObject.transform.position);
+            Debug.Log(dist);
+            if (dist < 0.2 || (dist < 0.4 && leniantOverlapTest)) return true;
+        }
+
+        return false;
     }
 
     public string TriangleType()

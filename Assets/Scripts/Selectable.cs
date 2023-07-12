@@ -17,6 +17,7 @@ public class Selectable : MonoBehaviour
 
     private bool _isSelected = false;
     private bool _mouseOver = false;
+    private bool viewOnlyMode = false;
     private int _clickCount = 0;
     private float _allowedTimeToClick = 0.3f;
     private float _clickTime = 0.0f;
@@ -38,6 +39,7 @@ public class Selectable : MonoBehaviour
 
     void Update()
     {
+        if (viewOnlyMode) return;
         Vector3 UItransform = UIButtons.transform.localPosition;
 
         if (_mouseOver && Input.GetMouseButtonDown(0)) Select();
@@ -55,6 +57,13 @@ public class Selectable : MonoBehaviour
 
         UIButtons.transform.rotation = Quaternion.identity;
         UIButtons.transform.localPosition = Vector3.zero;
+    }
+
+    public void SetToViewOnly()
+    {
+        viewOnlyMode = true;
+        UIButtons.SetActive(false);
+        rotationHandle.SetActive(false);
     }
 
     public bool IsSelected() {

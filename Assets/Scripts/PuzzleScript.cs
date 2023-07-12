@@ -59,11 +59,16 @@ public class PuzzleScript : MonoBehaviour
 
     public GameObject GetUnsolvedPiece()
     {
+        //separate for loops to ensure triangles not in the area at all are prioritized
         foreach (GameObject tri in triangles)
         {
             if (!AreaCollider.IsTouching(tri.GetComponent<PolygonCollider2D>())) return tri;
+        }
+        foreach (GameObject tri in triangles)
+        {
             if (EdgeCollider.IsTouching(tri.GetComponent<PolygonCollider2D>())) return tri;
         }
+
         return null;
     }
 }

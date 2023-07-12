@@ -11,7 +11,8 @@ public class Menu : MonoBehaviour
     public GameObject UIButtons;
     public GameObject defaultTriangles;
     private GameObject[] oldTriangles;
-    private bool directionsActive;
+    private bool directionsActive = false;
+    private bool solutionView = false;
 
     private void Start()
     {
@@ -52,7 +53,7 @@ public class Menu : MonoBehaviour
 
     public void WinGameUI()
     {
-        if (winnerPopUp && winnerPopUp.activeSelf) return;
+        if (winnerPopUp && winnerPopUp.activeSelf || solutionView) return;
         if (directionsPopUp)
         {
             directionsPopUp.SetActive(false);
@@ -60,5 +61,30 @@ public class Menu : MonoBehaviour
         }
         if (UIButtons) UIButtons.SetActive(false);
         if (winnerPopUp) winnerPopUp.SetActive(true);
+    }
+
+    public void ViewSolution()
+    {
+        solutionView = true;
+        if (winnerPopUp && winnerPopUp.activeSelf) winnerPopUp.SetActive(false);
+        if (UIButtons)
+        {
+            UIButtons.SetActive(true);
+            UnityEngine.UI.Button hintButton = GameObject.Find("Hint Button").GetComponent<UnityEngine.UI.Button>();
+            if (hintButton) hintButton.interactable = false;
+            UnityEngine.UI.Button directionsButton = GameObject.Find("DirectionsButton").GetComponent<UnityEngine.UI.Button>();
+            if (directionsButton) directionsButton.interactable = false;
+        }
+
+        DragDrop[] dragDrops = Resources.FindObjectsOfTypeAll<DragDrop>();
+        foreach(DragDrop dragDrop in dragDrops)
+        {
+            dragDrop.SetToViewOnly();
+        }
+        Selectable[] selectables = Resources.FindObjectsOfTypeAll<Selectable>();
+        foreach (Selectable selectable in selectables)
+        {
+            selectable.SetToViewOnly();
+        }
     }
 }

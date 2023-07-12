@@ -13,6 +13,7 @@ public class DragDrop : MonoBehaviour
     }
 
     [SerializeField] private bool mouseOver;
+    private bool viewOnlyMode = false;
     private Vector3 offset;
 
     private SpriteRenderer _sprite;
@@ -46,6 +47,8 @@ public class DragDrop : MonoBehaviour
 
     void Update()
     {
+        if (viewOnlyMode) return;
+
         //if they click on a docked whiteboard piece, spawn in that triangle to play with
         if (Input.GetMouseButtonDown(0) && mouseOver && gameObject.tag == "docked")
         {
@@ -82,6 +85,11 @@ public class DragDrop : MonoBehaviour
     private void OnMouseExit()
     {
         mouseOver = false;
+    }
+
+    public void SetToViewOnly()
+    {
+        viewOnlyMode = true;
     }
 
     public void Select()
