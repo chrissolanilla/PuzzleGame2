@@ -25,6 +25,12 @@ public class SceneNavigation : MonoBehaviour
         PlayerStatistics.StopLevelTimer();
     }
 
+    public void OpenInfoPage()
+    {
+        //hard coded because we don't want links to be variables for security reasons
+        Application.OpenURL("https://www.researchgate.net/publication/366311257_Supporting_All_Students_Development_of_Geometric_Understanding_2021_NCTM_Virtual_Conference_Activities_for_the_Triangle_Puzzle");
+    }
+
     public void RequestButtonClickSound()
     {
         GameObject manager = GameObject.FindWithTag("SoundManager");

@@ -42,11 +42,13 @@ public class Menu : MonoBehaviour
         if (directionsActive == false)
         {
             directionsPopUp.SetActive(true);
+            UIButtons.SetActive(false);
             directionsActive = true;
         }
         else if (directionsActive == true)
         {
             directionsPopUp.SetActive(false);
+            UIButtons.SetActive(true);
             directionsActive = false;
         }
     }
