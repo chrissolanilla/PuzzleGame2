@@ -47,12 +47,26 @@ public class PuzzleScript : MonoBehaviour
     public void checkComplete()
     {
         complete = true;
+        Debug.Log("CHECKING COMPLETE:");
         foreach(GameObject tri in triangles)
         {
+            Debug.Log("Checking " + tri.name);
+            if (EdgeCollider.IsTouching(tri.GetComponent<PolygonCollider2D>()))
+            {
+                Debug.Log("TOUCHING EDGE");
+            }
+            if (!AreaCollider.IsTouching(tri.GetComponent<PolygonCollider2D>()))
+            {
+                Debug.Log("NOT TOUCHING AREA");
+            }
             if (EdgeCollider.IsTouching(tri.GetComponent<PolygonCollider2D>()) || !AreaCollider.IsTouching(tri.GetComponent<PolygonCollider2D>()))
             {
                 complete = false;
                 break;
+            }
+            else
+            {
+                Debug.Log("ALL GOOD");
             }
         }
     }

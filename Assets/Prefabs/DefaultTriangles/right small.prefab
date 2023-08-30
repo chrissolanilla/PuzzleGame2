@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5937489852243568908
 Transform:
   m_ObjectHideFlags: 0
@@ -414,6 +414,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triangleType: right small
+  postOverlapHintTime: 2.5
+  leniantOverlapTest: 0
 --- !u!60 &517984173720893950
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -745,7 +747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5884227708873711051
 RectTransform:
   m_ObjectHideFlags: 0

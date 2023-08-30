@@ -15,24 +15,48 @@ EditorBuildSettings:
     path: Assets/Scenes/Game_WhiteboardMode.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Game_Level_1.unity
+    path: Assets/Scenes/Game_Level_1_1.unity
     guid: 06a1219259672eb40a418e468abfa752
   - enabled: 1
     path: Assets/Scenes/Menu_Report.unity
     guid: f3327f5ff909f6d48bf7ee92793373d3
   - enabled: 1
-    path: Assets/Scenes/Game_Level_2.unity
+    path: Assets/Scenes/Game_Level_2_1.unity
     guid: 964125ddd7b75e24194c9a4b50041ce8
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Game_Level_3.unity
-    guid: 6b6b5c8945dbc5644b0ce144983463d1
-  - enabled: 1
-    path: Assets/Scenes/Game_Level_4.unity
+    path: Assets/Scenes/Game_Level_5_1.unity
     guid: 8e646b3ee74929146b838c403c92e8a1
   - enabled: 1
-    path: Assets/Scenes/Game_Level_5.unity
+    path: Assets/Scenes/Game_Level_3_1.unity
     guid: 21dc2eb3d0018bb478af548b0581caf0
   - enabled: 1
     path: Assets/Scenes/Menu_Credits.unity
     guid: 176f493728d62c942a333d52950cbc2b
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_1_2.unity
+    guid: 3dc4950bcda177248a2af84fbefb9d01
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_1_3.unity
+    guid: 23f9042bd7a7bc445b7f39fdea2f6d80
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_2_2.unity
+    guid: 06d925763ced17c4aa905396081a8043
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_2_3.unity
+    guid: d6e06703788f1ac4c903440ffe080db0
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_3_2.unity
+    guid: 8b8c7c2f87315b846bb1d3a7e44d7a22
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_3_3.unity
+    guid: bcc8312abbfc932469279c574a79dcf4
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_5_2.unity
+    guid: 4789a95ffbcec964abf3fca504ecae3a
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_5_3.unity
+    guid: 954b211335edb9241bbb2289711a2620
   m_configObjects: {}
