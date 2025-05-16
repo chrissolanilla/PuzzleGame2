@@ -17,7 +17,7 @@ public class ReportSender : MonoBehaviour
         form.AddField("email", playerEmail);
         form.AddField("report", report);
 
-        UnityWebRequest www = UnityWebRequest.Post("localhost:3000", form);
+        UnityWebRequest www = UnityWebRequest.Post("http://localhost:3000", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
