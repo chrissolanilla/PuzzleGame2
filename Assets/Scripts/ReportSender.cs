@@ -1,9 +1,19 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
+using TMPro;
 
 public class ReportSender : MonoBehaviour
 {
+	[SerializeField] TextMeshProUGUI emailInput;
+	// public TMP_InputField emailInput;
+
+	public void SendReportFromInput()
+	{
+		string email = emailInput.text.Trim().Replace("\u200B", "");
+		SendReport(email);
+	}
+
     public void SendReport(string email)
     {
         StartCoroutine(SendReportEmail(email));
