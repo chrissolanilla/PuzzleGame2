@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 5-3
+  m_text: Level 4-3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e9250f97094d814e91d02b5a4efcb57, type: 2}
   m_sharedMaterial: {fileID: -4616387821459506918, guid: 9e9250f97094d814e91d02b5a4efcb57, type: 2}
@@ -4250,7 +4250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 5-2
+  m_text: Level 4-2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e9250f97094d814e91d02b5a4efcb57, type: 2}
   m_sharedMaterial: {fileID: -4616387821459506918, guid: 9e9250f97094d814e91d02b5a4efcb57, type: 2}
@@ -5101,7 +5101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 5-1
+  m_text: Level 4-1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e9250f97094d814e91d02b5a4efcb57, type: 2}
   m_sharedMaterial: {fileID: -4616387821459506918, guid: 9e9250f97094d814e91d02b5a4efcb57, type: 2}
@@ -5324,7 +5324,7 @@ GameObject:
   - component: {fileID: 1421143902}
   - component: {fileID: 1421143901}
   m_Layer: 5
-  m_Name: PuzzlesSlot5-1
+  m_Name: PuzzlesSlot4-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8074,7 +8074,7 @@ GameObject:
   - component: {fileID: 1870997773}
   - component: {fileID: 1870997772}
   m_Layer: 5
-  m_Name: PuzzlesSlot5-2
+  m_Name: PuzzlesSlot4-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8982,7 +8982,7 @@ GameObject:
   - component: {fileID: 1995260625}
   - component: {fileID: 1995260624}
   m_Layer: 5
-  m_Name: PuzzlesSlot5-3
+  m_Name: PuzzlesSlot4-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
