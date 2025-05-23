@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game_WhiteboardMode.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Game_Level_1_1.unity
+    path: Assets/Scenes/Game_Level_1_3.unity
     guid: 06a1219259672eb40a418e468abfa752
   - enabled: 1
     path: Assets/Scenes/Menu_Report.unity
@@ -36,10 +36,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu_Credits.unity
     guid: 176f493728d62c942a333d52950cbc2b
   - enabled: 1
-    path: Assets/Scenes/Game_Level_1_2.unity
+    path: Assets/Scenes/Game_Level_1_4.unity
     guid: 3dc4950bcda177248a2af84fbefb9d01
   - enabled: 1
-    path: Assets/Scenes/Game_Level_1_3.unity
+    path: Assets/Scenes/Game_Level_1_5.unity
     guid: 23f9042bd7a7bc445b7f39fdea2f6d80
   - enabled: 1
     path: Assets/Scenes/Game_Level_2_2.unity
@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game_Level_4_3.unity
     guid: 954b211335edb9241bbb2289711a2620
+  - enabled: 1
+    path: Assets/Scenes/Game_Level_1_1.unity
+    guid: 7bca2b6fade77aa44a4bc2742ac366e1
   m_configObjects: {}
