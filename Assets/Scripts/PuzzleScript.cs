@@ -31,7 +31,7 @@ public class PuzzleScript : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().color = completeColor;
             if (puzzleUIControls) puzzleUIControls.WinGameUI();
-            PlayerStatistics.CompeltePuzzleLevel();
+            PlayerStatistics.CompletePuzzleLevel();
         }
         else
         {

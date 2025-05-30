@@ -502,8 +502,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1301206251}
   m_HandleRect: {fileID: 1301206250}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.5377169
+  m_Value: 1.0000007
+  m_Size: 0.63602376
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3836,8 +3836,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 54.86367, y: -105.60303}
-  m_SizeDelta: {x: 769.8821, y: 362.9589}
+  m_AnchoredPosition: {x: 54.86367, y: -64.86507}
+  m_SizeDelta: {x: 769.8821, y: 429.316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701426361
 MonoBehaviour:
@@ -8843,7 +8843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.00013624683}
   m_SizeDelta: {x: 0, y: 675}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1571650276
@@ -9480,7 +9480,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 45.738525, y: 110.837616}
+  m_AnchoredPosition: {x: 45.738525, y: 170}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1698518112
@@ -10739,6 +10739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1842681993}
   - component: {fileID: 1842681994}
+  - component: {fileID: 1842681995}
   m_Layer: 0
   m_Name: Puzzles
   m_TagString: Untagged
@@ -10801,7 +10802,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: 10
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
@@ -10810,6 +10811,21 @@ MonoBehaviour:
   m_Spacing: {x: 15, y: 5}
   m_Constraint: 1
   m_ConstraintCount: 5
+--- !u!114 &1842681995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842681992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281083207f2273b3dbe96d60638e00e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 8019321364364505248, guid: c86492ac27a1ba600af697ab543bd576, type: 3}
+  filledStar: {fileID: 21300000, guid: 2ebf732ea53da0dccb494b18672bf655, type: 3}
+  outlinedStar: {fileID: 21300000, guid: 2dbbad8009921d392ac57e6bac4b33e9, type: 3}
 --- !u!1 &1870997770
 GameObject:
   m_ObjectHideFlags: 0
