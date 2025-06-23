@@ -1118,6 +1118,8 @@ MonoBehaviour:
   winnerPopUp: {fileID: 0}
   UIButtons: {fileID: 0}
   defaultTriangles: {fileID: 0}
+  textPrefab: {fileID: 0}
+  sliderPrefab: {fileID: 0}
 --- !u!114 &405405985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2258,6 +2260,8 @@ MonoBehaviour:
   winnerPopUp: {fileID: 1960016303}
   UIButtons: {fileID: 1300601901}
   defaultTriangles: {fileID: 0}
+  textPrefab: {fileID: 0}
+  sliderPrefab: {fileID: 0}
 --- !u!1 &863461737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,6 +2825,8 @@ MonoBehaviour:
   winnerPopUp: {fileID: 0}
   UIButtons: {fileID: 0}
   defaultTriangles: {fileID: 0}
+  textPrefab: {fileID: 0}
+  sliderPrefab: {fileID: 0}
 --- !u!114 &1038707270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3764,8 +3770,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5285,6 +5291,8 @@ MonoBehaviour:
   winnerPopUp: {fileID: 0}
   UIButtons: {fileID: 0}
   defaultTriangles: {fileID: 0}
+  textPrefab: {fileID: 0}
+  sliderPrefab: {fileID: 0}
 --- !u!114 &1860595747
 MonoBehaviour:
   m_ObjectHideFlags: 0

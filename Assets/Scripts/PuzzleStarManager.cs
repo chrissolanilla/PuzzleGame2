@@ -7,6 +7,10 @@ public class PuzzleStarManager : MonoBehaviour
     public GameObject starPrefab; // Assign in Inspector
     public Sprite filledStar;
     public Sprite outlinedStar;
+	public Sprite purpleStar;
+	public Sprite redStar;
+	public bool green = false;
+	public bool red = false;
 
     private const int MAX_STARS = 3;
 
@@ -66,7 +70,18 @@ public class PuzzleStarManager : MonoBehaviour
 			{
 				GameObject star = Instantiate(starPrefab, starRow.transform);
 				Image starImg = star.GetComponent<Image>();
-				starImg.sprite = i < starRating ? filledStar : outlinedStar;
+				if(green)
+				{
+					starImg.sprite = i < starRating ? filledStar : outlinedStar;
+				}
+				else if(red)
+				{
+					starImg.sprite = i < starRating ? redStar : outlinedStar;
+				}
+				else
+				{
+					starImg.sprite = i < starRating ? purpleStar : outlinedStar;
+				}
 				starImg.rectTransform.sizeDelta = new Vector2(32, 32);
 			}
 		}
