@@ -39,7 +39,7 @@ public class ReportSender : MonoBehaviour
         form.AddField("email", playerEmail);
         form.AddField("report", report);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://139.177.202.193:3000", form);
+        UnityWebRequest www = UnityWebRequest.Post("/api", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -49,7 +49,7 @@ public class ReportSender : MonoBehaviour
         }
         else
         {
-			ShowFeedback("Thanks! Check your email for a sender of chrissolanilla@gmail.com. Try checking spam if you do not see it. ", Color.black);
+			ShowFeedback("Thanks! Check your email for a sender of enrique.ortiz.scott@gmail.com. Try checking spam if you do not see it. ", Color.black);
             Debug.Log("Email sent successfully!");
         }
     }
